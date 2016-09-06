@@ -1,21 +1,30 @@
-socket = require 'socket'
+sketch = Framer.Importer.load 'imported/app@1x'
 
-socket.on 'connect', () => console.log 'connect'
-socket.on 'connection', (id) => console.log 'connection', id
-socket.on 'disconnection', (id) => console.log 'disconnection', id
+# shapes = require 'shapes'
+# socket = require 'socket'
 
-layer = new Layer
-  image: 'images/monster.png'
-  backgroundColor: '#00F'
+# socket.on 'connected', (id) =>
+#   console.log 'connected:', id
+# socket.on 'message', (message, id) =>
+#   console.log "#{id}:", message
 
-layer.center()
+# circle = shapes.createCircle 100
+# circle.center()
 
-layer.states.add
-  expanded:
-    scale: 2
+# layer = new Layer
+#   width: 200
+#   height: 200
+#   image: 'images/city.jpg'
 
-layer.states.animationOptions = curve: 'spring(500,12,0)'
+# layer.center()
 
-layer.on 'click', () =>
-  layer.states.next()
-  socket.send 'hello'
+# layer.states.add
+#   expanded:
+#     scale: 2
+
+# layer.states.animationOptions =
+#   curve: 'spring(500,12,0)'
+
+# layer.on 'click', () =>
+#   layer.states.next()
+#   socket.send 'hello'
